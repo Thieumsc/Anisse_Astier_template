@@ -1,0 +1,86 @@
+aside {
+    /*border: solid purple 1px;*/
+    width: 25%;
+    padding-left: 15px;
+    font-family: Mulish;
+    
+}
+
+aside>header div {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px;
+    width: 130px;
+}
+
+aside>header img{
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    border: 5px solid rgb(0, 162, 255);
+    filter: drop-shadow(0 0 0.35rem rgb(61, 58, 58));
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+aside>header img:hover {
+    filter: drop-shadow(0 0 0.35rem rgb(231, 227, 227));
+    box-shadow: 0 0 0.75rem rgb(0, 162, 255);
+}
+
+aside h1{
+    /*background-color: pink;*/
+    font-size: 12pt; /*à modifier après download font*/
+    font-weight: 700; 
+}
+aside h2{
+    /*background-color: yellowgreen;*/
+    font-size: 9pt; /*à modifier après download font*/
+}
+
+aside p {
+    font-size: 10pt;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: justify;
+}
+
+#rss {
+    border-radius: 50%;
+    background: rgb(128, 194, 233);
+    width: 50px;
+    height: 50px;
+}
+
+.point {
+    border-radius: 50%;
+    background:black;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.arc1 {
+    /*border-right: 10px solid black;
+    border-top: 10px solid black;
+    border-radius: 45%;
+    display: inline-block;*/
+    width: 31px;
+    height: 31px;
+    border-radius: 40%;
+    border-right: 8px double black;
+}
+
+.arc2 {
+    /*border-right: 10px solid black;
+    border-top: 10px solid black;
+    border-radius: 45%;
+    display: inline-block;*/
+    width: 21px;
+    height: 21px;
+    border-radius: 40%;
+    border-right: 8px double black;
+}
