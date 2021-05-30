@@ -1,0 +1,38 @@
+article {
+    color: black;
+}
+
+h2 {
+    color: royalblue;
+}
+
+body main>article header h2 {
+    color: gray;
+}
+
+img {
+    background-image: url("/assets/images/image_clavier_anisse.png");
+}
+
+pre {
+    border: 3px solid dodgerblue;
+}
+
+main footer {
+    color: dodgerblue;
+    border: 3px solid dodgerblue;
+}
+
+ul {
+    white-space: nowrap;
+}
+
+li {
+    display: inline;
+}
+
+body>footer {
+    background: dodgerblue;
+    text-align: center;
+    color: white;
+}
