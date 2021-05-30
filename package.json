@@ -1,6 +1,7 @@
 {
   "name": "anisse_astier_template",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,10 +11,20 @@
     "type": "git",
     "url": "git+https://github.com/Thieumsc/Anisse_Astier_template.git"
   },
-  "author": "",
+  "author": "mathieu charles, thais dussart and johanna saint fleurant",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Thieumsc/Anisse_Astier_template/issues"
   },
-  "homepage": "https://github.com/Thieumsc/Anisse_Astier_template#readme"
+  "homepage": "https://github.com/Thieumsc/Anisse_Astier_template#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "strftime": "^0.10.0"
+  },
+  "devDependencies": {
+    "jsend-express": "^1.2.4"
+  }
 }
