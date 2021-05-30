@@ -2,16 +2,12 @@ article {
     color: black;
 }
 
-h1 {
-    color: dodgerblue;
-}
-
 h2 {
-    color: black;
+    color: royalblue;
 }
 
-article header>h1 {
-    color: black;
+body main>article header h2 {
+    color: gray;
 }
 
 img {
@@ -19,5 +15,24 @@ img {
 }
 
 pre {
-    border: dodgerblue;
+    border: 3px solid dodgerblue;
+}
+
+main footer {
+    color: dodgerblue;
+    border: 3px solid dodgerblue;
+}
+
+ul {
+    white-space: nowrap;
+}
+
+li {
+    display: inline;
+}
+
+body>footer {
+    background: dodgerblue;
+    text-align: center;
+    color: white;
 }
