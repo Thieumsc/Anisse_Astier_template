@@ -1,0 +1,33 @@
+{
+  "name": "anisse_astier_template",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-modules --experimental-json-modules src/server.js",
+    "dev": "nodemon --verbose --delay 2500ms --inspect  --watch src --exec 'npm run start'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thieumsc/Anisse_Astier_template.git"
+  },
+  "author": "mathieu charles, thais dussart and johanna saint fleurant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thieumsc/Anisse_Astier_template/issues"
+  },
+  "homepage": "https://github.com/Thieumsc/Anisse_Astier_template#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsend-express": "^1.2.4",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.1",
+    "nodemon": "^2.0.7",
+    "strftime": "^0.10.0",
+    "swagger-spec-checker": "github:caloudinou/swagger-spec-checker",
+    "yamljs": "^0.3.0"
+  }
+}

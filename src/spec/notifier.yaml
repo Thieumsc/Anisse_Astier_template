@@ -1,0 +1,66 @@
+swagger: "2.0"
+info:
+  title: "NOTIFIER API"
+  version: "1.0.0"
+  description: The API for user Notify.
+schemes:
+  - "http"
+basePath: "/v1"
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+produces:
+  - "application/json"
+paths:
+  /send:
+    post:
+      tags:
+        - "email"
+      summary: email.
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "send email"
+          schema:
+            $ref: "#/definitions/Email"
+      responses:
+        200:
+          description: Email send.
+          schema:
+            $ref: "#/definitions/Send"
+        400:
+          description: Invalid data
+        500:
+          description: |
+            Internal Server Error: An unexpected error occurred.
+definitions:
+  Email:
+    type: object
+    properties:
+      emails:
+        type: array
+        items:
+          type: string
+          format: email
+  Send:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          properties:
+            email:
+              type: string
+              format: email
+            is_send:
+              type: boolean
+  Error:
+    type: object
+    properties:
+      status:
+        type: number
+      message:
+        type: string
