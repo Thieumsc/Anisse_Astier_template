@@ -1,4 +1,47 @@
-# website to nakama training 
+# website to nakama training
+
+## setup :
+### docker install :
+- install docker 
+- create env/local.env with params
+
+```dotenv
+    EMAIL_SENDER=''
+    EMAIL_PASSWORD=''
+    NAME='email-sender'
+    EMAIL='dev@mail.com'
+```
+- build docker :
+```shell
+$  docker-compose -f dev.docker-compose.yml build
+```
+
+### nodejs install : 
+- install nodejs version > 15
+
+```shell
+$ npm i
+```
+add in your bash profile
+```dotenv
+    EMAIL_SENDER=''
+    EMAIL_PASSWORD=''
+    NAME='email-sender'
+    EMAIL='dev@mail.com'
+```
+
+
+## run app
+### run with docker:
+```shell
+$  docker-compose -f dev.docker-compose.yml up
+```
+
+### run with nodejs:
+```shell
+$  npm run dev
+```
+
 ## settting app :
 ### configurate gmail sender:
 
@@ -10,11 +53,7 @@ go here https://myaccount.google.com/lesssecureapps and enable for less secure a
 
 go here https://accounts.google.com/DisplayUnlockCaptcha and enable/continue and then try.
 
-for me step 1 alone didn't work so i had to go to step 2.
-
-i also tried removing the nodemailer-smtp-transport package and to my surprise it works. but then when i restarted my system it gave me same error, so i had to go and turn on the less secure app (i disabled it after my work).
-
-then for fun i just tried it with off(less secure app) and vola it worked again!
+(maybe works without step 1)
 
 #### Step 3:
 
@@ -25,5 +64,7 @@ like this :
 ```dotenv
 EMAIL_SENDER='toto@gmail.com'
 EMAIL_PASSWORD='Fr5Tg*B'
+NAME='email-sender'
+EMAIL=''
 ```
 

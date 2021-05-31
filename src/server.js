@@ -14,9 +14,6 @@ const config = loader()
 const { JSend, middlewareErrorHandler } = JSendExpress
 const jSend = new JSend()
 
-console.log(config)
-console.log(config.yamlPaths)
-console.log(config.projectInfo)
 const [{ swaggerDocument }] = SwaggerDocumentation(config.swagger.yamlPaths, config.swagger.projectInfo)
 
 const app = express()
