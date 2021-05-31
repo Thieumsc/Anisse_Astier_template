@@ -12,7 +12,6 @@ export const mailSender = async (emails = ['']) => {
 
 
     const transporter = nodemailer.createTransport({
-        // port: 465,
         service: 'gmail',
         host: 'smtp.gmail.com',
         auth: {

@@ -8,6 +8,7 @@ import strftime from 'strftime'
 import { cleanProcess } from './helpers/clean-process.js'
 import { SwaggerDocumentation, SwaggerUi } from 'swagger-spec-checker'
 import { loader } from "./config/index.js";
+import notifier from "./routes/index.js";
 
 const config = loader()
 
@@ -33,7 +34,7 @@ app.use(morgan(config.morgan))
 app.use(bodyParser.json(config.bodyParser))
 
 // router api
-app.use(`${config.prefix}/`, routeAPI)
+app.use(`${config.prefix}/`, notifier)
 
 // documentation apo
 app.use(`${config.prefix}/documentation`, SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
@@ -41,6 +42,10 @@ app.use(`${config.prefix}/documentation`, SwaggerUi.serve, SwaggerUi.setup(swagg
 
 // route public
 app.use(express.static('public'))
+
+app.get('*', function(req, res) {
+    return res.redirect('/404.html')
+})
 
 // gestion error
 app.use(middlewareErrorHandler)

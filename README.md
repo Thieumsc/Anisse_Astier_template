@@ -68,3 +68,15 @@ NAME='email-sender'
 EMAIL=''
 ```
 
+## custom url 
+Locate your hosts file :
+
+- Linux: `/etc/hosts`
+- MacOS: `/private/etc/hosts`
+- Windows: `C:\Windows\System32\drivers\etc\hosts`
+
+Add this line at the end of the file:
+```shell
+127.0.0.1 nakama.dev
+```
+Now you can access your container using `nakama.dev:4280`

@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  notifier_training_nakama:
+    labels:
+      name: notifier_training_nakama
+    build:
+      context: .
+      target: notifier_release_training_nakama
+      dockerfile: dev.Dockerfile
+    container_name: notifier_training_nakama
+    restart: always
+    env_file:
+      - ./env/local.env
+    volumes:
+      - ./template:/home/node/app/template
+      - ./public:/home/node/app/public
+      - ./src:/home/node/app/src
+    ports:
+      - 4280:4280
