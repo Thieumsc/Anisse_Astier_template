@@ -5,21 +5,30 @@ import express from 'express'
 import morgan from 'morgan'
 import JSendExpress from 'jsend-express'
 import strftime from 'strftime'
-import { cleanProcess } from 'helpers/clean-process.js'
+import { cleanProcess } from './helpers/clean-process.js'
+import { SwaggerDocumentation, SwaggerUi } from 'swagger-spec-checker'
+import { loader } from "./config/index.js";
 
+const config = loader()
 
 const { JSend, middlewareErrorHandler } = JSendExpress
-const jSend = new JSend(config.jSend)
+const jSend = new JSend()
+
+console.log(config)
+console.log(config.yamlPaths)
+console.log(config.projectInfo)
+const [{ swaggerDocument }] = SwaggerDocumentation(config.swagger.yamlPaths, config.swagger.projectInfo)
 
 const app = express()
 
 // set config global application
-app.locals.title = config.jSend.name
+app.locals.title = process.env.NAME || ''
 app.locals.strftime = strftime
-app.locals.email = config.dev.email
+app.locals.email = process.env.EMAIL || ''
 
 // do not give away too much about the underlying technology used..
 app.disable('x-powered-by')
+
 // init server helpers
 app.use(express.json())
 app.use(jSend.middleware.bind(jSend))
@@ -27,7 +36,12 @@ app.use(morgan(config.morgan))
 app.use(bodyParser.json(config.bodyParser))
 
 // router api
-app.use(sendMailAPI)
+app.use(`${config.prefix}/`, routeAPI)
+
+// documentation apo
+app.use(`${config.prefix}/documentation`, SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
+
+
 // route public
 app.use(express.static('public'))
 
