@@ -16,9 +16,8 @@ li {
     padding: 0;
     list-style-type: none;
     display: inline-block;
-    font-family: 'muli', 'arial', 'sans-serif';
+    font-family: Muli, Arial, 'sans-serif';
     font-weight: 400;
-    font-size: 94em;
 }
 
 a {
@@ -26,9 +25,3 @@ a {
     color: #000;
     opacity: 0.7;
     }
-
-@font-face {
-    font-family: 'Muli';
-    font-weight: 400;
-    src: url('./muli/muli-normal-latin-ext.woff2'), format('woff2');
-}
