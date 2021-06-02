@@ -1,0 +1,13 @@
+body > header > nav > ul > li:first-child {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgb(128, 194, 233);
+}
+
+li {
+    display: inline-block;
+    font-family: Anisse;
+    font-weight: 400;
+    cursor: pointer;
+}
