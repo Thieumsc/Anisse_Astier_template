@@ -1,9 +1,7 @@
 aside {
-    /*border: solid purple 1px;*/
     width: 25%;
     padding-left: 15px;
-    font-family: Mulish;
-    
+    font-family: Anisse;
 }
 
 aside>header div {
@@ -30,13 +28,11 @@ aside>header img:hover {
 }
 
 aside h1{
-    /*background-color: pink;*/
-    font-size: 12pt; /*à modifier après download font*/
+    font-size: 12pt;
     font-weight: 700; 
 }
 aside h2{
-    /*background-color: yellowgreen;*/
-    font-size: 9pt; /*à modifier après download font*/
+    font-size: 9pt;
 }
 
 aside p {
@@ -64,10 +60,7 @@ aside p {
 }
 
 .arc1 {
-    /*border-right: 10px solid black;
-    border-top: 10px solid black;
-    border-radius: 45%;
-    display: inline-block;*/
+    display: inline-block;
     width: 31px;
     height: 31px;
     border-radius: 40%;
@@ -75,10 +68,7 @@ aside p {
 }
 
 .arc2 {
-    /*border-right: 10px solid black;
-    border-top: 10px solid black;
-    border-radius: 45%;
-    display: inline-block;*/
+    display: inline-block;
     width: 21px;
     height: 21px;
     border-radius: 40%;
