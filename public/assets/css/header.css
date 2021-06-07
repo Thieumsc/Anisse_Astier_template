@@ -1,13 +1,48 @@
-body > header > nav > ul > li:first-child {
+.icon {
     width: 64px;
     height: 64px;
     border-radius: 50%;
     background: rgb(128, 194, 233);
+    text-align: center;
+    display: inline-block;
+}
+
+.icon:hover{
+    background: rgb(67, 127, 255);
+}
+
+.square1 {
+    margin-top: 6px;
+    margin-left: 14.5px;
+    width: 25px;
+    height: 18px;
+    border: white 5px solid;
+    border-radius: 20%;
+
+}
+
+.square2 {
+    margin-left: 24.5px;
+    width: 15px;
+    border-top: solid white 5px;
+    border-radius: 30%;
+ }
+ 
+.home::before {
+    content: "home";
+    color: white;
 }
 
 li {
-    display: inline-block;
-    font-family: Anisse;
-    font-weight: 400;
     cursor: pointer;
+    word-spacing: 50px;
+}
+
+li > a {
+    vertical-align: middle;
+    color: grey;
+}
+
+.Archives:hover, .Projects:hover {
+    color: black;
 }
