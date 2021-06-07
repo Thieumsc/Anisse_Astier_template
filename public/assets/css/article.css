@@ -1,38 +1,88 @@
 article {
     color: black;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 1.49rem;
+    font-weight: 900;
 }
 
 h2 {
     color: royalblue;
 }
 
-body main>article header h2 {
-    color: gray;
-}
-
-img {
-    background-image: url("/assets/images/image_clavier_anisse.png");
-}
-
-pre {
-    border: 3px solid dodgerblue;
-}
-
-main footer {
-    color: dodgerblue;
-    border: 3px solid dodgerblue;
-}
-
 ul {
     white-space: nowrap;
+    text-align: center;
 }
 
 li {
     display: inline;
 }
 
+img {
+    background-image: url("./assets/images/image_clavier_anisse.png");
+}
+
+pre {
+    border: 3px solid dodgerblue;
+}
+
+blockquote {
+    border-left: 10px solid lightgrey;
+    border-right: 0.5px solid lightgrey;
+    width: 380px;
+    border-block-start: 0.5px solid lightgrey;
+    border-block-end: 0.5px solid lightgrey;
+    border-start-start-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
 body>footer {
     background: dodgerblue;
     text-align: center;
     color: white;
+}
+
+body main footer {
+    text-align: right;
+}
+
+main footer a {
+    color: dodgerblue;
+    border: 3px solid dodgerblue;
+    border-radius: 100px;
+    padding: 3px;
+    width:fit-content;
+}
+
+body main article section p, img, pre, blockquote {
+    margin-top: 1.2rem;
+}
+
+body main>article header, .blocblue{
+    border-left: 12px solid #2196f3;
+    background: whitesmoke;
+}
+
+body main section article header h1.blocgreen, .blocgreen{
+    border-left: 12px solid yellowgreen;
+    background: whitesmoke;
+}
+
+
+body main article header h2 {
+    color: gray;
+    font-size: 0.94rem;
+    font-weight: 400;
+}
+
+body main article section h2 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+}
+
+body main p a {
+    color: dodgerblue;
 }

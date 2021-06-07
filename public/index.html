@@ -65,60 +65,156 @@
             </header>
             <article>
                 <header>
-                    <h1>Praesent eget pulvinar purus</h1>
-                    <h2>Sem vitae lectus commodo, a commodo</h2>
+                    <h1>Keyboard layout adventures</h1>
+                    <h2>Three bépo layout related stories</h2>
                 </header>
                 <section>
-                    <p>Praesent eget pulvinar purus, consectetur pharetra ex.<a href="#">Phasellus </a>justo</p>
-                    <h2>tezaofnoezn fzaof,nzea</h2>
-                    <img src="/assets/images/image_clavier_anisse.png" alt="image clavier">
-                    <pre></pre>
-                    <blockquote>ezkdnfoieznsvionezraivnezlan</blockquote>
+                    <p>I've been using a french dvorak-like key layout, called<a href="#"> bépo </a>for about 13 years; sometimes, I need to hack things around to have it work everywhere, like when I<a href="#"> wrote support for it android physical keyboards</a>.</p>
+                    <h2>GPD Win Max Adaptation</h2>
+                    <p>I acquired recently a <a href="https://www.gpd.hk/"> GPD Win Max</a>, which is a descendant from netbooks crossed with a portable game console, and it quickly became my main computer (my old laptop was 10 years old, so it was indeed an upgrade).
+                    <p>While it's a very capable little device, it has a very condensed keyboard, which does not make it easy to use, especially when typing in bépo:</p>
+                    <img src="./assets/images/image_clavier_anisse.png" alt="image clavier">
+                    <p>As you can see, it has been custom-designed for qwerty, and does not take into account other keyboard layouts. For example, there's no AltGr, and semicolon is hidden next to space. 60% keyboard owners would be right at home, if it were not for the lack of programmability of the layers.</p>
+                    <p>In bépo, semicolon maps to N, which is a relatively common key. I decided to remap it like this, with bépo in mind:</p>
+                    <img src="./assets/images/image_clavier_anisse.png" alt="image clavier">
+                    <p>I replaced Enter with semicolon (N in bépo), and put Enter next to Space, taking inspiration from the split keyboards which better utilize thumbs for typing. I moved Alt on the Windows key, which I almost never use, and put AltGr on the semicolon key. Finally, I depend much more on Tab than Caps Lock, so I swapped the two keys.</p>
+                    <p>To do this in Linux, once upon a time, on had to modify the xmodmap key, or create a custom xkb layout. Both of these would be less useful today: one still needs to type a passphrase before the X server starts (to unlock the disks), or to type stuff in wayland apps (which don't use X layout). Fortunately, starting udev 175, it's now possible to rearrange physical keys directly with udev. See for example this tutorial or this one in french (english here).</p>
+                    <p>So I decided to re-order the keys (scancodes) at the udev level, to make use of the bépo layout as-is. The first step it to find which input device is the keyboard. I like looking into
+                        <code>/proc/bus/input/devices.</code>
+                        On x86 laptops, the keyboard is usually accessible through the i8042 device:
+                    </p>
+                    <pre>texte</pre>
+                    <p>It says here its sysfs device is
+                        <code>/devices/platform/i8042/serio0/input/input4.</code>
+                        I want to know how to match this device with udev, so I run:
+                    </p>
+                    <pre>texte</pre>
+                    <p>The interesting line here is the
+                        <code>MODALIAS</code>.I'll use the <code>input:b0011v0001p0001eAB83…</code>line to match precisely this keyboard, and ask udev to swap its keys. In order to do this, I follow the <a href="#"> tutorial I linked earlier</a>and create a file in /etc/udev/hwdb.d:
+                    </p>
+                    <pre>texte</pre>
+                    <p>Then update the udev hwdb:</p>
+                    <pre>texte</pre>
+                    <p>and re-trigger rules for this device:</p>
+                    <pre>texte</pre>
+                    <p>Note that I use the device node instead of the sysfs path for the trigger:
+                        <code>/dev/input/event4.</code>
+                    </p>
+                    <h2>Yubikey OTP with bépo</h2>
+                    <p>A Yubikey used in OTP mode will send keys that have been selected to be a common "subset" between common western layouts: qwerty, azerty, qwertz, etc. Of course, no key is at the same place in bépo, so this this doesn't work.</p>
+                    <p>Using the exact same methodology as before, it's possible to use a Yubikey (in OTP mode) without changing the keymap to qwerty/azerty before use. Here is the file I now have on multiple machines:</p>
+                    <pre>texte</pre>
+                    <p>Fun fact: it wouldn't be needed if we had a way to always use a given keymap (say, qwerty) for a device that sends keys like this. And there is such a way, kinda: the
+                        <a href="#">systemd developers added such a feature in hwdb 5 years ago</a>, but it <a href="#">still isn't honored by desktop environments</a>.</p>
+                    <h2>Inability to type with bépo AFNOR in a Linux console</h2>
+                    <p>In 2015, a french standardization process was started to make new and homogeneous french keyboard layouts. In 2019, a new AZERTY layout was standardized. In addition to this, years of community efforts (of which I had nothing to do with, but I saw the countless mailing list messages) helped standardize at the same time a new BÉPO layout, bépo 1.1, or bépo AFNOR.</p>
+                    <p>It's almost the same as bépo 1.0, so moving to it was pretty painless. It was also integrated relatively quickly in Linux distributions via the <a href="#">xkeyboard-config project</a>
+                        (although it does not have all the compose goodies, which are mostly for exotic characters).
+                    </p>
+                    <p>While it was painless to use in desktop environments, this layout did not load during boot in console mode, which plymouth uses for querying the disk passphrase. Since it did not load, the fallback was to an unconfigured qwerty layout, which is not the most comfortable to type passphrase if you're not used to it.
+                        <a href="#">It was reported to Debian</a>, but the issue is identical in Fedora or Ubuntu. After being annoyed for a few months, I took some time to try to fix it.
+                    </p>
+                    <p>Virtual TTY keyboard layouts are first converted by ckbcomp from the xkb format, and then loaded into the kernel by <a href="#">kbd</a>. So I had a look at kbd, and after messing around, I
+                        <a href="#">sent the following patch upstream</a>:
+                    </p>
+                    <pre>texte</pre>
+                    <p>As you can see, a single symbol '🄯' couldn't be loaded because its unicode value is 5 hex characters instead of 4, and is bigger than the max of 0xf000. So I made the lexer regex recognize longer unicode characters (up to 6, the max allowed), and made the range go to the current unicode limit as well.</p>
+                    <p>Only there is one issue: it was simply incorrect. While it worked on my machine, it was just the wrong thing to do, as you can see with <a href="">this answer from Alexey Gladkov</a>, kbd's maintainer:</p>
+                    <blockquote>Nop. Partially keymap loading is very dangerous. You can get a completely unusable console. The libkeymap shouldn't break the console if it is known in advance that the keymap is not correct. You should fix ckbcomp so that it generates the correct keymap.</blockquote>
+                    <p>This is because the linux kernel simply does not support <a href="#">loading unicode symbols greater than 0xf000 with the KDSETKEYCODE ioctl</a>, because the ABI uses 16-bits values. There are probably other reasons internal to the kernel console keyboard or font handling, but I haven't dug into why.</p>
+                    <p>So I changed my <a href="#"> patch to kbd show a better error message instead</a></p>
+                    <pre>texte</pre>
+                    <p>And then started looking at <a href="#">ckbcomp</a> a huge perl script, part of the <a href="#">console-setup project</a>, that is used to do the conversion from xkb format, to a format understandable by kbd.</p>
+                    <p>It already had provisions for removing unknown symbols with the internal <code>$voidsymbol</code>, which I used to replace any character outside of the range supported by Linux.</p>
+                    <p>Here is the <a href="#">patch I sent upstream></a></p>
+                    <pre>texte</pre>
+                    <p>Unfortunately, I've yet to hear from the console-setup maintainers on whether this is correct or not. I'll update this article if the situation changes. In the meantime, I was able to scratch my itch, and I can now type my disk unlock passphrase in plymouth with the bépo 1.1 key layout.</p>
                 </section>
                 <footer>
-                    <a href="/bepo-android.html">Sed fringilla sit amet massa in dapibus.</a>
+                    <a href="https://anisse.astier.eu/bepo-android.html">This Article</a>
                 </footer>
             </article>
             <section>
                 <article>
                     <header>
-                        <h1>ipsum dolor</h1>
-                        <h2>sit amet, consectetur</h2>
+                        <h1 class="blocgreen">Blog update</h1>
+                        <p>I recently updated the server where this blog is hosted, so I tought I'd do an update on the
+                            <a href="#">original post</a>explaining the tech stack used to run it. Once in seven years shouldn't be too meta.
+                        </p>
                     </header>
                     <section>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit<a href="#">if</a>k</p>
+                        <h2>The design</h2>
+                        <p>First of all, kudos to <a href="#">Pascal Navière</a>, a very talented polymath …</p>
                     </section>
                     <footer>
-                        <a href="/">Quisque pharetra commodo elementum.</a>
+                        <a href="/">Continue Reading</a>
                     </footer>
                 </article>
                 <article>
-                    <header>
-                        <h1>Aenean feugiat</h1>
-                        <h2>em vitae lectus commodo, a commodo</h2>
+                    <header class="blocblue">
+                        <h1>Mass delete of Gmail emails</h1>
+                        <h2>Using Google Apps Script to clear your old emails</h2>
                     </header>
                     <section>
-                        <p>Aenean feugiat sem vitae lectus commodo, a commodo mi tristique.<a href="#">if</a>k</p>
+                        <p>Gmail used to be the reference for "infinite email storage". Not anymore.</p>
                     </section>
                     <footer>
-                        <a href="/keyboard-layout-adventures.html">Vestibulum viverra faucibus lorem vitae tincidunt.</a>
+                        <a href="/keyboard-layout-adventures.html">Continue Reading</a>
                     </footer>
                 </article>
-            </section>
+                <article>
+                    <header class="blocgreen">
+                        <h1>The ability to work remotely in Embedded is a sign of software engineering maturity</h1>
+                        <h2>It should have been a tweet, but instead you get a short essay</h2>
+                    </header>
+                    <section>
+                        <p>This has been brewing for a while, but I finally put it into words during this pandemic</p>
+                    </section>
+                    <footer>
+                        <a href="/">Continue Reading</a>
+                    </footer>
+                </article>
+                <article>
+                    <header class="blocblue">
+                        <h1>A beginner hacker's guide to IPv6</h1>
+                        <h2>A quick brain dump of everything I know regarding IPv6</h2>
+                    </header>
+                    <section>
+                        <p>I noticed recently how little I knew about IPv6. For someone working on broadband gateways</p>
+                        <h2>How to read an IPv6 address: the zeroes are hidden</h2>
+                        <p>An ...</p>
+                    </section>
+                    <footer>
+                        <a href="/">Continue Reading</a>
+                    </footer>
+                </article>
+                <article>
+                    <header class="blocgreen">
+                        <h1>36th Chaos Communication Congress</h1>
+                        <h2>A peek of 36c3 with my notes</h2>
+                    </header>
+                    <section>
+                        <p>I’m at CCC for the first time this year ! Here my notes for a few of the talks.</p>
+                        <h2>Tamago</h2>
+                        <p>In an ideal world, one could pick the programming language of their choice and always generate the optimal machine code.</p>
+                    </section>
+                    <footer>
+                        <a href="/">Continue Reading</a>
+                    </footer>
+                </article>
             <nav>
                 <ul>
-                    <li></li>
-                    <li><a href="/index.html">1</a></li>
-                    <li><a href="/index2.html">2</a></li>
-                    <li>...</li>
-                    <li><a href="/index3.html">3</a></li>
-                    <li><a href="/index4.html">4</a></li>
-                    <li></li>
+                    <li><a href="https://anisse.astier.eu/index.html">1</a></li>
+                    <li><a href="https://anisse.astier.eu/index2.html">2</a></li>
+                    <li><a href="https://anisse.astier.eu/index3.html">3</a></li>
+                    <li><a href="https://anisse.astier.eu/index4.html">4</a></li>
+                    <li><a href="https://anisse.astier.eu/index4.html">5</a></li>
                 </ul>
             </nav>
+            </section>
         </main>
         <footer>
-            <p>Fusce nec accumsan quam, at semper dui.</p>
+            <p>Built with pelican - web design by Navière Pascal</p>
         </footer>
     </body>
 </html>
