@@ -12,8 +12,8 @@ aside>header div {
 }
 
 aside>header img{
-    width: 30%;
-    height: 30%;
+    width: 25%;
+    height: 25%;
     border-radius: 50%;
     border: 5px solid rgb(0, 162, 255);
     filter: drop-shadow(0 0 0.35rem rgb(61, 58, 58));
@@ -42,16 +42,23 @@ aside p {
     text-align: justify;
 }
 
-#rss {
+.icon-rss {
     border-radius: 50%;
     background: rgb(128, 194, 233);
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-rss:hover {
+    background: rgb(70, 129, 255);
+    -webkit-transform: scale(1.25);
 }
 
 .point {
     border-radius: 50%;
-    background:black;
+    background:white;
     width: 10px;
     height: 10px;
     display: inline-block;
@@ -59,18 +66,50 @@ aside p {
     margin-left: 10px;
 }
 
-.arc1 {
+.email {
+    border-radius: 50%;
+    background: rgb(128, 194, 233);
+    width: 60px;
+    height: 60px;
     display: inline-block;
-    width: 31px;
-    height: 31px;
-    border-radius: 40%;
-    border-right: 8px double black;
+    vertical-align: middle;
+    position: relative;
 }
 
-.arc2 {
-    display: inline-block;
-    width: 21px;
-    height: 21px;
-    border-radius: 40%;
-    border-right: 8px double black;
+.email:hover {
+    background: rgb(70, 129, 255);
+    -webkit-transform: scale(1.25);
 }
+
+.rectangle {
+    width: 36px;
+    height: 18px;
+    border: solid white;
+    background: white;
+    position: relative;
+    margin-top: 19px;
+    margin-left: 9.5px;
+}
+
+.triangle1 {
+    width: 0px;
+    height: 0px;
+    border-top: 16px solid rgb(128, 194, 233);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: relative;
+    bottom: 22.5px;
+    left: 9.5px;
+}
+
+.triangle2 {
+    width: 0px;
+    height: 0px;
+    border-top: 12px solid white;
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
+    position: relative;
+    bottom: 41px;
+    left: 12.8px;
+}
+
