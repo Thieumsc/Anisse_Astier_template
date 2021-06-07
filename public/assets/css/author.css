@@ -44,26 +44,76 @@ aside p {
 
 .icon-rss {
     border-radius: 50%;
-    background: rgb(128, 194, 233);
+    background:  rgb(0, 162, 255);
+    opacity:0.5;
     width: 60px;
     height: 60px;
     display: inline-block;
     vertical-align: middle;
+    position: relative;
 }
 
 .icon-rss:hover {
-    background: rgb(70, 129, 255);
+    opacity: 1;
     -webkit-transform: scale(1.25);
 }
 
+.quart1 {
+    width: 33px;
+    height: 33px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: white;
+    transform:rotate(-90deg);
+    position:relative;
+    top:10px;
+    left:17px;    
+}
+
+.quart2 {
+    width: 25px;
+    height: 25px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: rgb(0, 162, 255);
+    transform: rotate(-90deg);
+    position: relative;
+    bottom: 15px;
+    left: 17px;    
+}
+
+.quart3 {
+    width: 17px;
+    height: 17px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: white;
+    transform: rotate(-90deg);
+    position: relative;
+    bottom: 32px;
+    left: 17px;    
+}
+
+.quart4 {
+    width: 9px;
+    height: 9px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: rgb(0, 162, 255);
+    transform: rotate(-90deg);
+    position: relative;
+    bottom: 40.5px;
+    left: 17px;    
+}
+
 .point {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background:white;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 10px;
+    position: relative;
+    bottom: 46px;
+    left: 14px;
 }
 
 .email {
