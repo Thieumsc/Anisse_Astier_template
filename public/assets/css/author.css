@@ -164,3 +164,79 @@ aside p {
     left: 12.8px;
 }
 
+.icon-github {
+    border-radius: 50%;
+    background:  rgb(0, 162, 255);
+    opacity:0.5;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-github:hover {
+    opacity:1;
+    -webkit-transform: scale(1.25);
+}
+
+.icon-github-base {
+    width: 16px;
+    height: 24px;
+    border: solid 1px white;
+    background: white;
+    border-radius: 30%;
+    position: relative;
+    top: 39px;
+    left: 22px;    
+}
+
+.icon-github-head-top {
+    width: 2.2rem;
+    height: 0.9rem;
+    border: solid 1px white;
+    border-radius: 1rem 1rem 0 0;
+    background: white;
+    position: relative;
+    bottom: 16px;
+    left: 12px;
+}
+
+.icon-github-head-bottom {
+    width: 2.2rem;
+    height: 0.8rem;
+    border: solid 1px white;
+    border-radius: 1rem 1rem 0 0;
+    background: white;
+    transform: rotate(180deg);
+    position: relative;
+    bottom: 18px;
+    left: 12px;
+}
+
+.icon-github-Lhear {
+    width: 0;
+    height: 0;
+    border-right : 6px solid transparent;
+    border-bottom : 7px solid white;
+    border-left : 6px solid transparent;
+    transform: rotate(-37deg);
+    position: relative;
+    left: 10px;
+    bottom: 48px;
+}
+
+.icon-github-Rhear {
+    width: 0;
+    height: 0;
+    border-right : 6px solid transparent;
+    border-bottom : 7px solid white;
+    border-left : 6px solid transparent;
+    transform: rotate(35deg);
+    position: relative;
+    left: 38.5px;
+    bottom: 55px;
+}
+
+
