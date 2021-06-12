@@ -1,4 +1,4 @@
-body > header > nav > ul > li:first-child {
+body > main> header > nav > ul > li:first-child {
     width: 64px;
     height: 64px;
     border-radius: 50%;
