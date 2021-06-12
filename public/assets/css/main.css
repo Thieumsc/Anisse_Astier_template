@@ -1,0 +1,9 @@
+li:hover .icon, li:focus .icon, li:active .icon, 
+li:hover .icon-circle, li:focus .icon-circle, li:active .icon-circle {
+    opacity: 1;
+} 
+
+li .icon, 
+li .icon-circle {
+    opacity: .5;
+} 
