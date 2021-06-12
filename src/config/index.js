@@ -1,5 +1,6 @@
 import PACKAGE from '../../package.json'
-import path from 'path'
+import path from 'path';
+import { fileURLToPath } from 'url'
 import YAML from 'yamljs'
 import fs from 'fs'
 
@@ -17,16 +18,18 @@ const {
     name = '',
     description = ''
 } = PACKAGE
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirnamea = path.dirname(__filename);
+console.log(__filename,__dirnamea)
 /**
  * getConfigInfo
  * @returns {{absolutePATH: string, directoryName: string}}
  */
 export const getConfigInfo = () => {
-    const absolutePATH = path.dirname(new URL(import.meta.url).pathname)
-
+    const absolutePATH = decodeURIComponent(path.dirname(new URL(import.meta.url).pathname))
+console.log(decodeURIComponent(absolutePATH))
     return {
-        absolutePATH,
+        absolutePATH:__dirnamea,
         directoryName: absolutePATH.split('/')[absolutePATH.split('/').length - 1]
     }
 }
@@ -34,9 +37,10 @@ export const getConfigInfo = () => {
 export const configInfo = getConfigInfo()
 export const __dirname = configInfo.absolutePATH.replace(`/${configInfo.directoryName}`, '')
 export const templateEmailPATH = __dirname.split("src")[0] + "template/email.html"
-export const serviceName = __dirname.split('/')[__dirname.split('/').length - 1]
+export const serviceName =/\//.test(__dirname)? __dirname.split('/')[__dirname.split('/').length - 1]:__dirname.split('\\')[__dirname.split('\\').length - 2]
+console.log(serviceName,/\//.test(__dirname))
 export const configYAML = YAML.load(`${configInfo.absolutePATH}/${NODE_ENV}.yaml`)
-
+console.log(serviceName)
 /**
  * loader: load and build configuration
  * @returns {*&{port: number, swagger: {projectInfo: {name: string, host: string, description, version}, yamlPaths: string[]}, jSend: {release: string, name: string, version}}}
