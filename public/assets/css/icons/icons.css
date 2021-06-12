@@ -1,0 +1,18 @@
+@import url("/assets/css/icons/email.css");
+@import url("/assets/css/icons/rss.css");
+@import url("/assets/css/icons/github.css");
+
+.icon-circle {
+    border-radius: 50%;
+    background:  rgb(0, 162, 255);
+    opacity:0.5;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-circle:hover {
+    opacity: 1;
+    transform: scale(1.25);
+}

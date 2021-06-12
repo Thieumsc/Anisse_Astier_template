@@ -1,0 +1,57 @@
+.github .icon-part-one {
+    width: 16px;
+    height: 24px;
+    border: solid 1px white;
+    background: white;
+    border-radius: 30%;
+    position: relative;
+    top: 39px;
+    left: 22px;    
+}
+
+.github .icon-part-two {
+    width: 2.2rem;
+    height: 0.9rem;
+    border: solid 1px white;
+    border-radius: 1rem 1rem 0 0;
+    background: white;
+    position: relative;
+    bottom: 16px;
+    left: 12px;
+}
+
+.github .icon-part-three {
+    width: 2.2rem;
+    height: 0.8rem;
+    border: solid 1px white;
+    border-radius: 1rem 1rem 0 0;
+    background: white;
+    transform: rotate(180deg);
+    position: relative;
+    bottom: 18px;
+    left: 12px;
+}
+
+.github .icon-part-four {
+    width: 0;
+    height: 0;
+    border-right : 6px solid transparent;
+    border-bottom : 7px solid white;
+    border-left : 6px solid transparent;
+    transform: rotate(-37deg);
+    position: relative;
+    left: 10px;
+    bottom: 48px;
+}
+
+.github .icon-part-five {
+    width: 0;
+    height: 0;
+    border-right : 6px solid transparent;
+    border-bottom : 7px solid white;
+    border-left : 6px solid transparent;
+    transform: rotate(35deg);
+    position: relative;
+    left: 38.5px;
+    bottom: 55px;
+}

@@ -1,0 +1,57 @@
+.rss .icon-part-one {
+    width: 33px;
+    height: 33px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: white;
+    transform:rotate(-90deg);
+    position:relative;
+    top:10px;
+    left:17px;    
+}
+
+.rss .icon-part-two {
+    width: 25px;
+    height: 25px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: rgb(0, 162, 255);
+    transform: rotate(-90deg);
+    position: relative;
+    bottom: 15px;
+    left: 17px;    
+}
+
+.rss .icon-part-three {
+    width: 17px;
+    height: 17px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: white;
+    transform: rotate(-90deg);
+    position: relative;
+    bottom: 32px;
+    left: 17px;    
+}
+
+.rss .icon-part-four {
+    width: 9px;
+    height: 9px;
+    -webkit-border-radius: 0 0 100%;
+    border-radius: 0 0 100%;
+    background: rgb(0, 162, 255);
+    transform: rotate(-90deg);
+    position: relative;
+    bottom: 40.5px;
+    left: 17px;    
+}
+
+.rss .icon-part-five {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background:white;
+    position: relative;
+    bottom: 46px;
+    left: 14px;
+}
