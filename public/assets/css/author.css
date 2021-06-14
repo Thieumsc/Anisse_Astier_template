@@ -16,15 +16,14 @@ aside>header img{
     height: 25%;
     border-radius: 50%;
     border: 5px solid rgb(0, 162, 255);
-    filter: drop-shadow(0 0 0.35rem rgb(61, 58, 58));
+    box-shadow: 0 0 0.3rem rgb(61, 58, 58);
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
 }
 
 aside>header img:hover {
-    filter: drop-shadow(0 0 0.35rem rgb(231, 227, 227));
-    box-shadow: 0 0 0.75rem rgb(0, 162, 255);
+    box-shadow: 0 0 0.3rem rgb(0, 162, 255);
 }
 
 aside h1{
