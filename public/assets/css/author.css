@@ -42,30 +42,6 @@ aside p {
     text-align: justify;
 }
 
-.icon-rss {
-    border-radius: 50%;
-    background: rgb(128, 194, 233);
-    width: 60px;
-    height: 60px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.icon-rss:hover {
-    background: rgb(70, 129, 255);
-    -webkit-transform: scale(1.25);
-}
-
-.point {
-    border-radius: 50%;
-    background:white;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 10px;
-}
-
 .email {
     border-radius: 50%;
     background: rgb(128, 194, 233);

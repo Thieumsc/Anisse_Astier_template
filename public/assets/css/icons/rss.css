@@ -1,0 +1,47 @@
+.icon .rss {
+    width: 32px;
+    height: 33px;
+    background: #ea4335;    
+}
+
+.rss .icon-part-one {
+    width: 20px;
+    height: 20px;
+    border-radius: 0 0 100%;    
+    background: white;
+    transform:translate3d(40%, 20%, 0) rotate(-90deg);
+}
+
+.rss .icon-part-two {
+    width: 16px;
+    height: 16px;
+    border-radius: 0 0 100%;    
+    background: rgb(0, 162, 255);
+}
+
+.rss .icon-part-three {
+    width: 12px;
+    height: 12px;
+    border-radius: 0 0 100%;    
+    background: white;
+}  
+
+.rss .icon-part-four {
+    width: 8px;
+    height: 8px;
+    border-radius: 0 0 100%;    
+    background: rgb(0, 162, 255);
+}
+
+.rss .icon-part-five {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;    
+    background: white;
+    transform: translate3d(-3%, -20%, 0);
+}
+
+.rss .icon-part-six, .icon-part-seven, .icon-part-eight, .icon-part-nine, .icon-part-ten {
+    display: none;
+}
+  
