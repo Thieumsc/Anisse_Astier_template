@@ -39,7 +39,7 @@ blockquote {
     border-bottom-left-radius: 3px;
 }
 
-body>footer {
+main>footer {
     background: dodgerblue;
     text-align: center;
     color: white;
