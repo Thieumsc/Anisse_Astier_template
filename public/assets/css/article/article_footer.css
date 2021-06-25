@@ -1,0 +1,17 @@
+main>footer {
+    background: dodgerblue;
+    text-align: center;
+    color: white;
+}
+
+main footer {
+    text-align: right;
+}
+
+main footer a {
+    color: dodgerblue;
+    border: 3px solid dodgerblue;
+    border-radius: 100px;
+    padding: 3px;
+    width:fit-content;
+}
