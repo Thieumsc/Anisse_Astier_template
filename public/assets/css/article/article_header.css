@@ -1,0 +1,20 @@
+body main>article header {
+    border-left: 12px solid #2196f3;
+    background: whitesmoke;
+}
+
+body main section article header {
+    border-left: 12px solid yellowgreen;
+    background: whitesmoke;
+}
+
+body main > section article:nth-of-type(2n) header {
+    border-left: 12px solid #2196f3;
+    background: whitesmoke;
+}
+
+body main article header h2{
+    color: gray;
+    font-size: 0.94rem;
+    font-weight: 400;
+}
